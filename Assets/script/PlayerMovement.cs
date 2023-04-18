@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
   private SpriteRenderer sprite;
   private BoxCollider2D coll;
   private Animator anim;
+  private PlayerLife playerLife;
 
   [SerializeField] private LayerMask jumpableGround;
 
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     sprite = GetComponent<SpriteRenderer>();
     anim = GetComponent<Animator>();
     coll = GetComponent<BoxCollider2D>();
+    playerLife = GetComponent<PlayerLife>();
   }
 
   // Update is called once per frame
@@ -67,6 +69,11 @@ public class PlayerMovement : MonoBehaviour
     else if(rb.velocity.y < -.1f)
     {
       state = MovementState.falling;
+    }
+
+    if(transform.position.y < -10f)
+    {
+      playerLife.RestartLevel();
     }
 
     anim.SetInteger("state", (int)state);
