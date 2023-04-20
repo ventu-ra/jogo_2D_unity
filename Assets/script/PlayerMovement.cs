@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
       state = MovementState.falling;
     }
 
-    if(transform.position.y < -10f)
+    if(transform.position.y < -15f)
     {
       playerLife.RestartLevel();
     }

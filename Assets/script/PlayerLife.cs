@@ -10,7 +10,7 @@ public class PlayerLife : MonoBehaviour
   private Animator anim;
 
   // Start is called before the first frame update
-  void Start()
+  private void Start()
   {
     anim = GetComponent<Animator>();
     rb = GetComponent<Rigidbody2D>();
